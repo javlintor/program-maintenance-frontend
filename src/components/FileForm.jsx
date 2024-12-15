@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FileForm() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleFileTypeChange = (e) => {
     const fileType = e.target.value;
     console.log("Selected file type:", fileType);
@@ -18,9 +20,15 @@ function FileForm() {
     // Implement file download logic here
   };
 
+
   const handleUpload = () => {
     console.log("Uploading the updated file...");
     // Implement file upload logic here
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   const fileTypes = ["Poduct 2.0", "Fileline", "Item Master"]
@@ -28,10 +36,10 @@ function FileForm() {
   return (
     <div className="text-white p-6 rounded-lg mx-auto mt-10 shadow-md">
 
-      <label for="file-type" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Select file type</label>
+      <label for="file-type" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Select file type</label>
 
 
-      <select id="file-type" class="w-[300px] mx-auto text-sm rounded-lg block p-2.5 bg-gray-700 border-gray-600placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+      <select id="file-type" className="w-[300px] mx-auto text-sm rounded-lg block p-2.5 bg-gray-700 border-gray-600placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
         {fileTypes.map((fileType) => { return <option>{fileType}</option> })}
       </select>
 
@@ -66,8 +74,21 @@ function FileForm() {
         </div>
 
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg w-80">
+            <h2 className="text-lg font-bold mb-4">File Updated</h2>
+            <p className="text-sm text-gray-300 mb-4">Your file has been successfully uploaded.</p>
+            <button
+              onClick={closeModal}
+              className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition w-full"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
 export default FileForm;

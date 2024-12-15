@@ -81,7 +81,7 @@ function FileForm() {
             <p className="text-sm text-gray-300 mb-4">Your file has been successfully uploaded.</p>
             <button
               onClick={closeModal}
-              className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition w-full"
+              className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition w-full"
             >
               Close
             </button>

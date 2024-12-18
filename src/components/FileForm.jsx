@@ -34,7 +34,7 @@ function FileForm() {
   const fileTypes = ["Poduct 2.0", "Fileline", "Item Master"]
 
   return (
-    <div className="text-white p-6 rounded-lg mx-auto mt-10 shadow-md">
+    <div className="mt-10">
 
       <label for="file-type" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Select file type</label>
 
